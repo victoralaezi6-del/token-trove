@@ -1,0 +1,309 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    font-size: 62.5%;
+    --primary-color: #431547;
+    --secondary-color: #fff;
+    --tertiary-color: #000;
+    --loader-color: #c50dc5;
+;
+    --color: #fff;
+    --header-font: 2.5rem;
+    --header-font-weight: 700;
+    --paragraph-font: 2rem;
+    --paragraph-font-weight: 500;
+    --hover-color: #250725;
+    --accordion-color: #322733;
+    --box-shadow: 0.2rem 0.2rem 2px #000;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Arial', sans-serif;
+    background-color: var(--secondary-color);
+}
+
+body.dark{
+    --secondary-color: #0e0d0d;
+    --accordion-color: #c50dc5;
+    --tertiary-color: #fff;
+    --color: #fff;
+    --loader-color: #fff;
+}
+
+#header{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: var(--secondary-color);
+    margin: 0 0 2rem 0;
+}
+
+h1{
+    font-size: var(--header-font);
+    font-weight: var(--header-font-weight);
+    color: var(--accordion-color);
+}
+
+/* Header text style */
+.header-about{
+    font-size: 1.2rem;
+    color: var(--tertiary-color);
+}
+
+/* Right header */
+#right-header{
+    display: flex;
+    gap: 1rem;
+}
+
+#right-header button{
+    background-color: var(--accordion-color);
+    color: var(--color);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 2rem;
+    font-size: 2rem;
+}
+
+#right-header button:hover{
+    transform: scale(1.05, 1.05);
+    cursor: pointer;
+    transition: 0.1s ease;
+}
+
+
+
+/* Main container style */
+#mainpage{
+    display: flex;
+    flex-direction: column;
+}
+
+/* Dashboard style */
+#Dashboard-container{
+    max-width: 60%;
+    width: 100%;
+    margin: 2rem auto;
+    background-color: var(--accordion-color);
+    color: var(--color);
+    padding: 3rem 3rem;
+    border: none;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: var(--box-shadow);
+}
+
+#darkmode{
+    background-color: var(--accordion-color);
+    color: var(--color);
+    padding: 1rem 2rem;
+    border: 1px solid var(--color);
+    border-radius: 2rem;
+    font-size: 2rem;
+}
+
+#darkmode:hover, #signupPage main button:hover, #loginPage main button:hover{
+    transform: scale(1.02, 1.05);
+    cursor: pointer;
+}
+
+/* Username style */
+#userName{
+    font-size: 3rem;
+    margin: 0 0 2rem 0;
+}
+
+/* Balance style */
+#balance{
+    font-size: 4rem;
+    font-weight: 600;
+    margin: 0 0 2rem 0;
+}
+
+/* Completed task style */
+#tasks-completed, #level, #xp-text{
+    font-size: 2rem;
+}
+
+.xp-section{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* For tasks card */
+#tasks-section {
+    width: 100%;
+    max-width: 50rem;
+    margin: 2rem auto;
+}
+
+#tasks-container{
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+#tasks-section h2{
+    color: var(--tertiary-color);
+    margin: 0 0 2rem 0;
+    text-align: center;
+    font-size: var(--header-font);
+}
+
+.task-card {
+    background-color: var(--accordion-color);
+    color: var(--color);
+    padding: 5rem 2rem;
+    border-radius: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    align-items: center;
+    box-shadow: var(--box-shadow);
+}
+
+.task-title{
+    font-size: var(--paragraph-font);
+}
+
+.task-done {
+    background-color: var(--hover-color);
+    color: white;
+    border: none;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    font-size: var(--paragraph-font);
+    box-shadow: var(--box-shadow);
+}
+
+
+/* Footer */
+footer{
+    font-size: 2rem;
+    background-color: var(--accordion-color);
+    color: var(--color);
+    text-align: center;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+footer a:link, footer a:visited, 
+#signupPage main a:link, #signupPage main a:visited, 
+#loginPage main a:link, #loginPage main a:visited{
+    color: #948181;
+    text-decoration: none;
+    transition: 0.15s ease;
+}
+
+footer a:hover, #signupPage main a:hover, #loginPage main a:hover{
+    text-decoration: underline;
+}
+
+#loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: none; /* important */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loader {
+    width: 7rem;
+    height: 7rem;
+    border: 7px dotted var(--loader-color);
+    border-top: 5px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* For signup and Login page*/
+#signupPage, #loginPage{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+#signupPage main, #loginPage main{
+    max-width: 50%;
+    width: 100%;
+    border: 1px solid var(--tertiary-color);
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    font-size: var(--paragraph-font);
+    font-weight: var(--paragraph-font-weight);
+    gap: 2rem;
+    padding: 3rem;
+    background-color: var(--color);
+    color: var(--tertiary-color);
+    box-shadow: 2px 2px 6px var(--tertiary-color);
+}
+
+#signupPage main div, #loginPage main div{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 100%;
+}
+
+#signupPage main div input, #loginPage main div input{
+    padding: 2px 6px;
+    font-size: var(--paragraph-font);
+    border: 1px solid var(--tertiary-color);
+    border-radius: 2rem;
+}
+
+#signupPage main button, #loginPage main button{
+    margin: 0 auto;
+    padding: 0.5rem 1.5rem;
+    font-size: var(--paragraph-font);
+    border: none;
+    border-radius: 2rem;
+    background-color: var(--accordion-color);
+    color: var(--color);
+}
+
+#signupPage main p, #loginPage main p{
+    margin: 0 auto;
+}
+
+
+/* Media queries */
+@media (max-width: 1000px){
+    :root{
+        font-size: 50%;
+    }
+}
+
+@media (max-width: 700px){
+    :root{
+        font-size: 37.5%;
+    }
+}
