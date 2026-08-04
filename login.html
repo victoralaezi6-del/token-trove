@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Token-Trove sign in page. Complete tasks, earn rewards, and track your progress.">
+    <meta name="theme-color" content="#431547">
+    <title>Token-Trove | Sign in</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body id="loginPage" class="auth-page">
+    <div class="background-orb background-orb--one"></div>
+    <div class="background-orb background-orb--two"></div>
+    <div class="background-grid" aria-hidden="true"></div>
+
+    <div id="page-loader" class="page-loader" aria-hidden="true" >
+        <div class="page-loader__spinner"></div>
+        <p id="loader-text">Signing you in...</p>
+    </div>
+
+    <div id="app-toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+    <header class="auth-topbar container">
+        <a href="index.html" class="brand">
+            <span class="brand__mark">TT</span>
+            <span class="brand__text">
+                <strong>Token-Trove</strong>
+                <small>Reward dashboard</small>
+            </span>
+        </a>
+
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+            <span class="theme-toggle__icon" aria-hidden="true">☾</span>
+            <span class="theme-toggle__text">Dark mode</span>
+        </button>
+    </header>
+
+    <main class="auth-shell container">
+        <section class="auth-brand card reveal-up">
+            <p class="eyebrow">Gamified earning experience</p>
+            <h1>Turn simple tasks into progress, rewards, and momentum.</h1>
+            <p class="auth-brand__intro">
+                Token-Trove helps users complete lightweight social tasks,
+                build streaks, level up, and keep track of their growth in one
+                polished dashboard experience.
+            </p>
+
+            <div class="feature-list">
+                <article class="feature-item">
+                    <span class="feature-item__icon">✓</span>
+                    <div>
+                        <h2>Interactive dashboard</h2>
+                        <p>Track balance, XP, completed tasks, and current level in real time.</p>
+                    </div>
+                </article>
+
+                <article class="feature-item">
+                    <span class="feature-item__icon">✓</span>
+                    <div>
+                        <h2>Persistent account progress</h2>
+                        <p>Your completed tasks and rewards remain saved for your account.</p>
+                    </div>
+                </article>
+
+                <article class="feature-item">
+                    <span class="feature-item__icon">✓</span>
+                    <div>
+                        <h2>Light and dark mode</h2>
+                        <p>Enjoy a modern interface that remembers your theme preference.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="auth-card card reveal-up">
+            <p class="eyebrow">Sign in</p>
+            <h2>Welcome back</h2>
+            <p class="auth-card__intro">
+                Enter your username or email and password to continue to your reward dashboard.
+            </p>
+
+            <form id="login-form" class="auth-form" novalidate>
+                <div class="form-group">
+                    <label for="login-identifier">Username or email</label>
+                    <input type="text" id="login-identifier" name="identifier" placeholder="Enter your username or email" autocomplete="username" maxlength="80" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <div class="password-row">
+                        <input type="password" id="login-password" name="password" placeholder="Enter your password" autocomplete="current-password" maxlength="120" required>
+                        <button type="button" class="password-toggle" data-toggle-password="login-password">Show</button>
+                    </div>
+                </div>
+
+                <p id="form-message" class="form-message" role="alert" aria-live="polite"></p>
+
+                <button id="login-submit" class="button button--primary button--full" type="submit">
+                    <span>Sign in</span>
+                </button>
+            </form>
+
+            <div class="auth-card__footer">
+                <p>Don’t have an account yet?</p>
+                <a href="signup.html" class="text-link">Create one now</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
