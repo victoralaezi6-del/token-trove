@@ -3,29 +3,435 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Token-Trove is a gamified task dashboard where users complete simple tasks, collect virtual rewards, earn XP, and level up.">
+    <meta name="theme-color" content="#431547">
+    <meta name="robots" content="index, follow">
+    <title>Token-Trove | Complete Tasks and Level Up</title>
     <link rel="stylesheet" href="styles.css">
-    <title>Token-Trove/login</title>
+    <script src="landing.js" defer></script>
 </head>
-<body id="loginPage">
-    <main>
-        <div>
-            <label for="username">Username</label>
-            <input type="text" id="username" required>
+<body id="landingPage" class="landing-page">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="background-orb background-orb--one" aria-hidden="true"></div>
+    <div class="background-orb background-orb--two" aria-hidden="true"></div>
+    <div class="background-grid" aria-hidden="true"></div>
+    <header class="landing-header">
+        <div class="container landing-header__inner">
+            <a href="index.html" class="brand" aria-label="Token-Trove home">
+                <span class="brand__mark">TT</span>
+                <span class="brand__text">
+                    <strong>Token-Trove</strong>
+                    <small>Complete. Earn. Level up.</small>
+                </span>
+            </a>
+
+            <button id="landing-menu-button" class="landing-menu-button" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="landing-navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav id="landing-navigation" class="landing-navigation" aria-label="Main navigation">
+                <div class="landing-navigation__links">
+                    <a href="#features">Features</a>
+                    <a href="#how-it-works">How it works</a>
+                    <a href="#tasks">Tasks</a>
+                    <a href="#about">About</a>
+                </div>
+
+                <div class="landing-navigation__actions">
+                    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+                        <span class="theme-toggle__icon" aria-hidden="true">☾</span>
+                        <span class="theme-toggle__text">Dark mode</span>
+                    </button>
+                    <a id="login-link" href="login.html" class="button button--ghost landing-login-link">Sign in</a>
+                    <a id="signup-link" href="signup.html" class="button button--primary">Get started</a>
+                </div>
+            </nav>
         </div>
+    </header>
 
-        <div>
-            <label for="password">Password</label>
-            <input type="password" id="password" required>
-        </div>
+    <main id="main-content">
+        <section class="landing-hero">
+            <div class="container landing-hero__grid">
+                <div class="landing-hero__content reveal-element">
+                    <div class="hero-badge">
+                        <span aria-hidden="true">✦</span> A gamified task experience
+                    </div>
 
-        <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+                    <h1>
+                        Complete simple tasks. <span>Collect rewards.</span> Level up.
+                    </h1>
 
-        <div>
-            <button id="Login-button">Sign in</button>
-        </div>
+                    <p class="landing-hero__description">
+                        Token-Trove turns social and engagement tasks into an
+                        interactive experience. Track your progress, earn XP,
+                        collect virtual rewards, and increase your level from
+                        one dashboard.
+                    </p>
 
+                    <div class="landing-hero__actions">
+                        <a id="primary-hero-action" href="signup.html" class="button button--primary landing-hero__button">
+                            Create free account
+                            <span aria-hidden="true">→</span>
+                        </a>
+
+                        <a href="#how-it-works" class="button button--secondary landing-hero__button">See how it works</a>
+                    </div>
+
+                    <div class="hero-points">
+                        <div><span aria-hidden="true">✓</span> No installation required</div>
+                        <div><span aria-hidden="true">✓</span> Progress saved locally</div>
+                        <div><span aria-hidden="true">✓</span> Light and dark mode</div>
+                    </div>
+
+                    <div class="demo-notice">
+                        <span aria-hidden="true">i</span>
+
+                        <p>
+                            Token-Trove is currently a portfolio demonstration.
+                            Rewards displayed inside the dashboard are virtual
+                            and cannot be withdrawn as real money.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="landing-hero__visual reveal-element">
+                    <div class="dashboard-preview">
+                        <div class="dashboard-preview__top">
+                            <div>
+                                <span class="preview-label">Your dashboard</span>
+                                <h2>Welcome, Explorer</h2>
+                            </div>
+
+                            <span class="preview-status">Active</span>
+                        </div>
+
+                        <div class="preview-wallet">
+                            <div>
+                                <span>Available balance</span>
+                                <strong>$108</strong>
+                            </div>
+
+                            <div class="preview-wallet__level">
+                                <span>Current level</span>
+                                <strong>Level 2</strong>
+                            </div>
+                        </div>
+
+                        <div class="preview-progress">
+                            <div class="preview-progress__heading">
+                                <span>Progress</span>
+                                <strong>420 / 650 XP</strong>
+                            </div>
+
+                            <div class="preview-progress__bar">
+                                <span></span>
+                            </div>
+                        </div>
+
+                        <div class="preview-statistics">
+                            <article>
+                                <span>Completed</span>
+                                <strong>4</strong>
+                            </article>
+
+                            <article>
+                                <span>Remaining</span>
+                                <strong>5</strong>
+                            </article>
+
+                            <article>
+                                <span>Total earned</span>
+                                <strong>$108</strong>
+                            </article>
+                        </div>
+
+                        <div class="preview-tasks">
+                            <article class="preview-task">
+                                <span class="preview-task__icon">F</span>
+                                <div>
+                                    <strong>Follow on Facebook</strong>
+                                    <small>$25 reward · 120 XP</small>
+                                </div>
+
+                                <span class="preview-task__done">Done</span>
+                            </article>
+
+                            <article class="preview-task">
+                                <span class="preview-task__icon">I</span>
+
+                                <div>
+                                    <strong>Share on Instagram</strong>
+                                    <small>$48 reward · 180 XP</small>
+                                </div>
+
+                                <span class="preview-task__new">New</span>
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="floating-card floating-card--reward">
+                        <span>Reward added</span>
+                        <strong>+$25</strong>
+                    </div>
+
+                    <div class="floating-card floating-card--level">
+                        <span>Achievement</span>
+                        <strong>Level up!</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="landing-section">
+            <div class="container">
+                <div class="section-heading reveal-element">
+                    <p class="eyebrow">Platform features</p>
+                    <h2>Everything needed to make progress feel rewarding</h2>
+                    <p>
+                        Token-Trove combines task management, game mechanics,
+                        account progress, and a responsive user interface.
+                    </p>
+                </div>
+
+                <div class="features-grid">
+                    <article class="feature-card reveal-element">
+                        <span class="feature-card__number">01</span>
+                        <div class="feature-card__icon">✓</div>
+                        <h3>Interactive tasks</h3>
+                        <p>Open social tasks, mark them as started, and claim rewards after completing them.</p>
+                    </article>
+
+                    <article class="feature-card reveal-element">
+                        <span class="feature-card__number">02</span>
+                        <div class="feature-card__icon">$</div>
+                        <h3>Virtual reward balance</h3>
+                        <p>See rewards added instantly and track the total amount collected from completed tasks.</p>
+                    </article>
+
+                    <article class="feature-card reveal-element">
+                        <span class="feature-card__number">03</span>
+                        <div class="feature-card__icon">↑</div>
+                        <h3>XP and levels</h3>
+                        <p>Earn XP from every completed task and progress through increasingly challenging levels.</p>
+                    </article>
+
+                    <article class="feature-card reveal-element">
+                        <span class="feature-card__number">04</span>
+                        <div class="feature-card__icon">◉</div>
+                        <h3>Progress dashboard</h3>
+                        <p>Monitor completed tasks, remaining opportunities, balance, XP, and current level from one place.</p>
+                    </article>
+
+                    <article class="feature-card reveal-element">
+                        <span class="feature-card__number">05</span>
+                        <div class="feature-card__icon">◐</div>
+                        <h3>Light and dark mode</h3>
+                        <p>Switch between themes and keep your selected appearance across every Token-Trove page.</p>
+                    </article>
+
+                    <article class="feature-card reveal-element">
+                        <span class="feature-card__number">06</span>
+                        <div class="feature-card__icon">↻</div>
+                        <h3>Persistent progress</h3>
+                        <p>Account and task progress remain saved in the browser until the user chooses to reset them.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="landing-section landing-section--soft">
+            <div class="container">
+                <div class="section-heading reveal-element">
+                    <p class="eyebrow">How it works</p>
+                    <h2>Start building your Token-Trove progress in three steps</h2>
+                </div>
+
+                <div class="steps-grid">
+                    <article class="step-card reveal-element">
+                        <span class="step-card__number">1</span>
+                        <div>
+                            <h3>Create your account</h3>
+                            <p>Choose a username, provide your email, and create a password to prepare your dashboard.</p>
+                        </div>
+                    </article>
+
+                    <article class="step-card reveal-element">
+                        <span class="step-card__number">2</span>
+                        <div>
+                            <h3>Start a task</h3>
+                            <p>Browse available tasks, choose one, and open the relevant social platform.</p>
+                        </div>
+                    </article>
+
+                    <article class="step-card reveal-element">
+                        <span class="step-card__number">3</span>
+                        <div>
+                            <h3>Claim the reward</h3>
+                            <p>Return after completing the task, claim the virtual reward, and receive XP toward your next level.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="tasks" class="landing-section">
+            <div class="container">
+                <div class="section-heading reveal-element">
+                    <p class="eyebrow">Task categories</p>
+                    <h2>Different ways to participate and build progress</h2>
+                </div>
+
+                <div class="category-grid">
+                    <article class="category-card reveal-element">
+                        <div class="category-card__top">
+                            <span class="category-card__icon">+</span>
+                            <span class="category-card__count">3 tasks</span>
+                        </div>
+
+                        <h3>Social tasks</h3>
+                        <p>Follow creator profiles across Facebook, Instagram, and TikTok.</p>
+                        <ul>
+                            <li>Follow on Facebook</li>
+                            <li>Follow on Instagram</li>
+                            <li>Follow on TikTok</li>
+                        </ul>
+                    </article>
+
+                    <article class="category-card reveal-element">
+                        <div class="category-card__top">
+                            <span class="category-card__icon">↗</span>
+                            <span class="category-card__count">4 tasks</span>
+                        </div>
+
+                        <h3>Sharing tasks</h3>
+                        <p>Create posts or share dashboard screenshots on supported social platforms.</p>
+
+                        <ul>
+                            <li>Facebook post</li>
+                            <li>Instagram post</li>
+                            <li>Dashboard screenshots</li>
+                        </ul>
+                    </article>
+
+                    <article class="category-card reveal-element">
+                        <div class="category-card__top">
+                            <span class="category-card__icon">◎</span>
+                            <span class="category-card__count">2 tasks</span>
+                        </div>
+
+                        <h3>Invitation tasks</h3>
+                        <p>Invite friends and followers to discover the Token-Trove demonstration.</p>
+                        <ul>
+                            <li>Facebook invitations</li>
+                            <li>Instagram invitations</li>
+                            <li>Higher XP rewards</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="landing-section">
+            <div class="container">
+                <div class="about-panel reveal-element">
+                    <div class="about-panel__content">
+                        <p class="eyebrow">About Token-Trove</p>
+                        <h2>A frontend project built around interaction, progress, and user experience</h2>
+                        <p>
+                            Token-Trove demonstrates responsive interface
+                            development, form validation, browser storage,
+                            account sessions, task filtering, theme
+                            persistence, animations, rewards, and XP-based
+                            progression.
+                        </p>
+                    </div>
+
+                    <div class="about-panel__statistics">
+                        <article>
+                            <strong>9</strong>
+                            <span>Available tasks</span>
+                        </article>
+
+                        <article>
+                            <strong>3</strong>
+                            <span>Task categories</span>
+                        </article>
+
+                        <article>
+                            <strong>2</strong>
+                            <span>Interface themes</span>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="landing-cta">
+            <div class="container">
+                <div class="landing-cta__panel reveal-element">
+                    <div>
+                        <p class="eyebrow">Ready to explore?</p>
+                        <h2>Create an account and open your Token-Trove dashboard</h2>
+                        <p>Start tasks, collect virtual rewards, earn XP, and experience the complete dashboard.</p>
+                    </div>
+
+                    <div class="landing-cta__actions">
+                        <a id="bottom-primary-action" href="signup.html" class="button button--primary">Create account</a>
+                        <a id="bottom-login-action" href="login.html" class="button button--secondary">Sign in</a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <script src="script.js"></script>
+    <footer class="landing-footer">
+        <div class="container landing-footer__grid">
+            <div>
+                <a href="index.html" class="brand">
+                    <span class="brand__mark">TT</span>
+                    <span class="brand__text">
+                        <strong>Token-Trove</strong>
+                        <small>Complete. Earn. Level up.</small>
+                    </span>
+                </a>
+
+                <p class="landing-footer__description">
+                    A gamified frontend demonstration created to showcase
+                    interactive dashboards, account flows, rewards, and
+                    progression systems.
+                </p>
+            </div>
+
+            <div class="landing-footer__links">
+                <div>
+                    <strong>Platform</strong>
+                    <a href="#features">Features</a>
+                    <a href="#how-it-works">How it works</a>
+                    <a href="#tasks">Tasks</a>
+                </div>
+
+                <div>
+                    <strong>Account</strong>
+                    <a href="login.html">Sign in</a>
+                    <a href="signup.html">Create account</a>
+                    <a href="dashboard.html">Dashboard</a>
+                </div>
+
+                <div>
+                    <strong>Contact</strong>
+                    <a href="mailto:victoralaezi6@gmail.com">Email</a>
+                    <a href="https://www.facebook.com/profile.php?id=61550055038846" target="_blank" rel="noopener noreferrer">Facebook</a>
+                    <a href="https://www.instagram.com/boi_nenye?igsh=ZGUzMzM3NWJiOQ==" target="_blank" rel="noopener noreferrer">Instagram</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container landing-footer__bottom">
+            <p>&copy; <span id="current-year">2026</span> Token-Trove. Built by Victor Chinenye Alaezi.</p>
+            <p>Virtual rewards only. No real-money payment or withdrawal.</p>
+        </div>
+    </footer>
 </body>
 </html>
