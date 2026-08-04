@@ -3,38 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create a Token-Trove account to complete tasks, earn rewards, and track your progress.">
+    <meta name="theme-color" content="#431547">
+    <title>Token-Trove | Sign up</title>
     <link rel="stylesheet" href="styles.css">
-    <title>Token-Trove/signup</title>
+    <script src="signup.js" defer></script>
 </head>
-<body id="signupPage">
-    <main>
-        <div>
-            <label for="username">Username</label>
-            <input type="text" id="username" required>
-        </div>
+<body id="signupPage" class="auth-page">
+    <div class="background-orb background-orb--one"></div>
+    <div class="background-orb background-orb--two"></div>
+    <div class="background-grid" aria-hidden="true"></div>
 
-        <div>
-            <label for="email">Email</label>
-            <input type="email" id="email" required>
-        </div>
+    <div id="page-loader" class="page-loader" aria-hidden="true">
+        <div class="page-loader__spinner"></div>
+        <p id="loader-text">Creating your account...</p>
+    </div>
 
-        <div>
-            <label for="password">Password</label>
-            <input type="password" id="password" required>
-        </div>
+    <div id="app-toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
-        <div>
-            <label for="confirmPassword">Confirm Password</label>
-            <input type="password" id="confirmPassword" required>
-        </div>
+    <header class="auth-topbar container">
+        <a href="index.html" class="brand">
+            <span class="brand__mark">TT</span>
+            <span class="brand__text">
+                <strong>Token-Trove</strong>
+                <small>Reward dashboard</small>
+            </span>
+        </a>
 
-        <div>
-            <button id="sign-up-button">Sign up</button>
-        </div>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+            <span class="theme-toggle__icon" aria-hidden="true">☾</span>
+            <span class="theme-toggle__text">Dark mode</span>
+        </button>
+    </header>
 
-        <p>Already have an account? <a href="index.html">Login</a></p>
+    <main class="auth-shell container">
+        <section class="auth-brand card reveal-up">
+            <p class="eyebrow">Start your journey</p>
+            <h1>Create an account and start earning inside Token-Trove.</h1>
+            <p class="auth-brand__intro">
+                Build your profile, complete engagement tasks, and track how your effort
+                translates into levels, XP, and rewards.
+            </p>
+
+            <div class="feature-list">
+                <article class="feature-item">
+                    <span class="feature-item__icon">01</span>
+                    <div>
+                        <h2>Create your account</h2>
+                        <p>Choose a username, save your details, and prepare your personal dashboard.</p>
+                    </div>
+                </article>
+
+                <article class="feature-item">
+                    <span class="feature-item__icon">02</span>
+                    <div>
+                        <h2>Complete available tasks</h2>
+                        <p>Open tasks, complete them externally, then come back to claim rewards.</p>
+                    </div>
+                </article>
+
+                <article class="feature-item">
+                    <span class="feature-item__icon">03</span>
+                    <div>
+                        <h2>Level up consistently</h2>
+                        <p>Earn XP with every completed task and unlock higher levels as you progress.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="auth-card card reveal-up">
+            <p class="eyebrow">Sign up</p>
+            <h2>Create your account</h2>
+            <p class="auth-card__intro">
+                Fill in the details below to set up your Token-Trove account.
+            </p>
+
+            <form id="signup-form" class="auth-form" novalidate>
+                <div class="form-group">
+                    <label for="signup-username">Username</label>
+                    <input type="text" id="signup-username" name="username" placeholder="Choose a username" autocomplete="username" maxlength="30" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="signup-email">Email address</label>
+                    <input type="email" id="signup-email" name="email" placeholder="Enter your email" autocomplete="email" maxlength="100" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <div class="password-row">
+                        <input type="password" id="signup-password" name="password" placeholder="Create a password" autocomplete="new-password" maxlength="120" required>
+                        <button type="button" class="password-toggle" data-toggle-password="signup-password">Show</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="signup-confirm-password">Confirm password</label>
+                    <div class="password-row">
+                        <input type="password" id="signup-confirm-password" name="confirmPassword" placeholder="Confirm your password" autocomplete="new-password" maxlength="120" required>
+                        <button type="button" class="password-toggle" data-toggle-password="signup-confirm-password">Show</button>
+                    </div>
+                </div>
+
+                <p class="form-hint">
+                    Password must be at least 8 characters and include both letters and numbers.
+                </p>
+
+                <p id="form-message" class="form-message" role="alert" aria-live="polite"></p>
+
+                <button id="signup-submit" class="button button--primary button--full" type="submit">
+                    <span>Create account</span>
+                </button>
+            </form>
+
+            <div class="auth-card__footer">
+                <p>Already have an account?</p>
+                <a href="login.html" class="text-link">Sign in instead</a>
+            </div>
+        </section>
     </main>
-
-    <script src="signup.js"></script>
 </body>
 </html>
