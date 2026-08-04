@@ -3,84 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Token-Trove dashboard for tracking tasks, balance, XP, and level progress.">
+    <meta name="theme-color" content="#431547">
+    <title>Token-Trove | Dashboard</title>
     <link rel="stylesheet" href="styles.css">
-    <title>Token-Trove</title>
+    <script src="dashboard.js" defer></script>
 </head>
-<body>
-    <!-- Main section -->
-    <main id="mainpage">
-        <div id="loader-overlay">
-            <div class="loader"></div>
-        </div>
+<body id="dashboardPage" class="dashboard-page">
+    <div class="background-orb background-orb--one"></div>
+    <div class="background-orb background-orb--two"></div>
+    <div class="background-grid" aria-hidden="true"></div>
 
-
-        <div id="header">
-            <div id="left-header">
-                <h1>Token-Trove</h1>
-                <p class="header-about">Redeem tasks, earn and update balance</p>
-            </div>
-
-            <div id="right-header">
-                <button id="Logout-button">Sign out⇉</button>
-            </div>
-
-        </div>
-
-        <div id="Dashboard-container">
-            <div>
-                <p id="userName"></p>
-                <p id="balance"></p>
-
-                <div class="xp-section">
-                    <p id="tasks-completed"></p>
-
-                    <div class="level-info">
-                        <span id="level"></span>
-                        <span id="xp-text"></span>
-                    </div>
-                    <div class="progress-bar">
-                        <div id="progress-fill"></div>
-                    </div>
-                </div>
-
-                <div id="loader-overlay">
-                    <div class="loader"></div>
-                </div>
-
-
-            </div>
-            <div>
-                <button id="darkmode">Darkmode</button>
-            </div>
-        </div>
-
-        <section id="tasks-section">
-            <h2>Tasks</h2>
-            <div id="tasks-container">
-                <div class="task-card">
-                    <p class="task-title"></p>
-                    <p class="social-container"></p>
-                    <button class="task-done"></button>
-                </div>
-            </div>
-        </section>
-
-
-        <footer>
-            <p id="contact-icon">
-                Contact us:
-                <a href="#">Home</a> |
-                <a href="mailto:victoralaezi6@gmail.com">Email</a> |
-                <a href="https://www.facebook.com/profile.php?id=61550055038846">Facebook</a> |
-                <a href="https://www.instagram.com/boi_nenye?igsh=ZGUzMzM3NWJiOQ==">Instagram</a> |
-                <a href="https://www.tiktok.com/@boinenye207">Tiktok</a>
-            </p>
-            
-            <p id="footer-text">&copy; 2026.  This website was created by <a href="https://www.facebook.com/profile.php?id=61550055038846">Victor Chinenye</a></p>
-        </footer>
+    <div id="page-loader" class="page-loader is-visible" aria-hidden="true">
+        <div class="page-loader__spinner"></div>
+        <p id="loader-text">Preparing your dashboard...</p>
     </div>
 
-</main>
-    <script src="dashboard.js"></script>
+    <div id="app-toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+    <header class="site-header">
+        <div class="container site-header__inner">
+            <a href="Dashboard.html" class="brand">
+                <span class="brand__mark">TT</span>
+                <span class="brand__text">
+                    <strong>Token-Trove</strong>
+                    <small>Interactive dashboard</small>
+                </span>
+            </a>
+
+            <div class="site-header__actions">
+                <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode" aria-pressed="false" >
+                    <span class="theme-toggle__icon" aria-hidden="true">☾</span>
+                    <span class="theme-toggle__text">Dark mode</span>
+                </button>
+
+                <button id="reset-progress-button" class="button button--ghost" type="button">Reset progress</button>
+
+                <button id="logout-button" class="button button--danger" type="button">Sign out</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard-shell container">
+        <section class="summary-grid reveal-up">
+            <article class="welcome-card card">
+                <p class="eyebrow">Your account</p>
+                <h1 id="userName">Welcome back</h1>
+                <p id="account-copy" class="welcome-card__copy">
+                    Stay consistent, complete available tasks, and keep building your reward balance.
+                </p>
+
+                <div class="wallet-panel">
+                    <div>
+                        <span class="wallet-panel__label">Available balance</span>
+                        <strong id="balance">$0</strong>
+                    </div>
+
+                    <div class="wallet-tag">
+                        <span>Total earned</span>
+                        <strong id="total-earned">$0</strong>
+                    </div>
+                </div>
+
+                <div class="xp-panel">
+                    <div class="xp-panel__top">
+                        <p id="tasks-completed">0 of 0 tasks completed</p>
+                        <div class="level-info">
+                            <span id="level">Level 1</span>
+                            <span id="xp-text">0 / 300 XP</span>
+                        </div>
+                    </div>
+
+                    <div class="progress-bar" aria-hidden="true">
+                        <div id="progress-fill" class="progress-bar__fill"></div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="stats-card card">
+                <p class="eyebrow">Quick snapshot</p>
+
+                <div class="stats-list">
+                    <div class="stats-item">
+                        <span>Tasks remaining</span>
+                        <strong id="tasks-remaining">0</strong>
+                    </div>
+
+                    <div class="stats-item">
+                        <span>Completed tasks</span>
+                        <strong id="completed-count">0</strong>
+                    </div>
+
+                    <div class="stats-item">
+                        <span>Tasks started</span>
+                        <strong id="started-count">0</strong>
+                    </div>
+
+                    <div class="stats-item">
+                        <span>Current theme</span>
+                        <strong id="current-theme-text">Light</strong>
+                    </div>
+                </div>
+
+                <div class="helper-card">
+                    <h2>How it works</h2>
+                    <p>
+                        Open a task, complete it on the target platform, then return to claim your reward
+                        and XP. Completed tasks are stored for your account.
+                    </p>
+                </div>
+            </article>
+        </section>
+
+        <section class="tasks-panel card reveal-up">
+            <div class="tasks-panel__header">
+                <div>
+                    <p class="eyebrow">Task board</p>
+                    <h2>Available tasks</h2>
+                </div>
+
+                <div class="tasks-panel__search">
+                    <label for="task-search">Search tasks</label>
+                    <input type="search" id="task-search" placeholder="Search by title or category" maxlength="80">
+                </div>
+            </div>
+
+            <div class="filter-group" id="filter-group">
+                <button class="filter-button is-active" type="button" data-filter="all">All</button>
+                <button class="filter-button" type="button" data-filter="social">Social</button>
+                <button class="filter-button" type="button" data-filter="share">Share</button>
+                <button class="filter-button" type="button" data-filter="invite">Invite</button>
+            </div>
+
+            <div id="tasks-container" class="tasks-grid"></div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container site-footer__inner">
+            <p>
+                Contact:
+                <a href="index.html">Home</a>
+                <span>|</span>
+                <a href="mailto:victoralaezi6@gmail.com">Email</a>
+                <span>|</span>
+                <a href="https://www.facebook.com/profile.php?id=61550055038846" target="_blank" rel="noopener noreferrer">Facebook</a>
+                <span>|</span>
+                <a href="https://www.instagram.com/boi_nenye?igsh=ZGUzMzM3NWJiOQ==" target="_blank" rel="noopener noreferrer">Instagram</a>
+                <span>|</span>
+                <a href="https://www.tiktok.com/@boinenye207" target="_blank" rel="noopener noreferrer">TikTok</a>
+            </p>
+
+            <p>
+                &copy; <span id="current-year">2026</span>. Built by
+                <a href="https://www.facebook.com/profile.php?id=61550055038846" target="_blank" rel="noopener noreferrer">
+                    Victor Chinenye
+                </a>
+            </p>
+        </div>
+    </footer>
 </body>
 </html>
