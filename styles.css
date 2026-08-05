@@ -138,8 +138,8 @@ a {
 .background-orb--one {
     top: 6rem;
     left: -10rem;
-    width: 28rem;
-    height: 28rem;
+    width: 15rem;
+    height: 15rem;
     background-color: var(--accent);
     animation: orbFloatOne 10s ease-in-out infinite alternate;
 }
@@ -147,8 +147,8 @@ a {
 .background-orb--two {
     right: -8rem;
     bottom: 5rem;
-    width: 24rem;
-    height: 24rem;
+    width: 10rem;
+    height: 10rem;
     background-color: var(--accent-strong);
     animation: orbFloatTwo 12s ease-in-out infinite alternate;
 }
