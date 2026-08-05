@@ -159,10 +159,7 @@ a {
     z-index: -4;
     opacity: 0.35;
     pointer-events: none;
-    background-image:
-        linear-gradient(to right, var(--line) 1px, transparent 1px),
-        linear-gradient(to bottom, var(--line) 1px, transparent 1px);
-    background-size: 6rem 6rem;
+    
 }
 
 @keyframes orbFloatOne {
